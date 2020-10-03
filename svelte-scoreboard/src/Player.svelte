@@ -1,4 +1,7 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
   import { bind } from "svelte/internal";
 
   export let name;
@@ -14,6 +17,8 @@
   const removePoint = () => {
     score -= 1;
   };
+
+  const onDelete = () => dispatch("removeplayer", name);
 </script>
 
 <style>
@@ -31,6 +36,7 @@
     <button class="btn btn-sm" on:click={toggleControls}>{#if showControls}
         -
       {:else}+{/if}</button>
+    <button class="btn btn-danger btn-sm" on:click={onDelete}>X</button>
   </h1>
   <h3>Score: {score}</h3>
 
