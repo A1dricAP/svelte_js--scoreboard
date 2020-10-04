@@ -1,8 +1,18 @@
 <script>
   import { text } from "svelte/internal";
 
-  let name = "aldric_ap";
+  let firstName = "aldric";
+  let lastName = "ap";
   let beltColour = "black";
+
+  $: fullName = `${firstName} ${lastName}`;
+  // this is a reactive value.
+  // this value automatically updates the fullName value, when either of the two variables
+  // value change.
+  $: {
+    console.log(beltColour);
+    console.log(fullName);
+  }
 
   const handleClick = () => {
     beltColour = "orange";
@@ -37,13 +47,8 @@
 </style>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <p style="color:{beltColour}">{beltColour} belt!</p>
-  <button on:click={handleClick}>Update colour!</button>
-
-  <!-- for the input field, "value" is to set the default value of the input box, in this case, the beltColour value. -->
-  <input type="text" on:input={handleInput}  />
-
-  <!-- this input field demos two-way binding. With the help of the "bind" keyword. -->
+  <p>{fullName} - {beltColour} belt!</p>
+  <input type="text" bind:value={firstName} />
+  <input type="text" bind:value={lastName} />
   <input type="text" bind:value={beltColour} />
 </main>
