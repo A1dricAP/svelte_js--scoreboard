@@ -4,6 +4,13 @@
     { name: "aaron", beltcolour: "orange", age: 15, id: 2 },
     { name: "jon", beltcolour: "red", age: 18, id: 3 },
   ];
+
+  const handleClick = (id) => {
+    // console.log(id);
+    people = people.filter((person) => person.id != id);
+    // filter javascript method to remove objects.
+    // we can give any name in place of <person>
+  };
 </script>
 
 <style>
@@ -32,10 +39,12 @@
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
-
       <p>{person.beltcolour} belt, and is {person.age} years old!</p>
+      <button on:click={() => handleClick(person.id)}>Delete</button>
+      <!-- in the on:click function, we use {()=>handleClick()} to prevent handleClick method from invoking. -->
+      <!-- basically wrapping the method with the help of callback function `()` -->
     </div>
-  {:else}
+
     <p>There are no people mate...☹️</p>
   {/each}
 </main>
