@@ -1,4 +1,6 @@
 <script>
+  import Modal from "./Modal.svelte"; //the name of the imported component can be anything
+
   let people = [
     { name: "aldric", beltcolour: "black", age: 20, id: 1 },
     { name: "aaron", beltcolour: "orange", age: 15, id: 2 },
@@ -37,6 +39,8 @@
   }
 </style>
 
+<!-- using the Modal component here. -->
+<Modal/>
 <main>
   {#if num > 5}
     <p>num greater than 5</p>
