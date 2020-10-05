@@ -11,6 +11,8 @@
     // filter javascript method to remove objects.
     // we can give any name in place of <person>
   };
+
+  let num = 5;
 </script>
 
 <style>
@@ -36,15 +38,25 @@
 </style>
 
 <main>
+  {#if num > 5}
+    <p>num greater than 5</p>
+  {:else if num > 20}
+    <p>num greater than 20</p>
+  {:else}
+    <p>number greater than 3</p>
+  {/if}
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
+      {#if person.beltcolour === 'black'}
+        <p><strong>MASTER NINJA!</strong></p>
+      {/if}
       <p>{person.beltcolour} belt, and is {person.age} years old!</p>
       <button on:click={() => handleClick(person.id)}>Delete</button>
       <!-- in the on:click function, we use {()=>handleClick()} to prevent handleClick method from invoking. -->
       <!-- basically wrapping the method with the help of callback function `()` -->
     </div>
-
+  {:else}
     <p>There are no people mate...☹️</p>
   {/each}
 </main>
