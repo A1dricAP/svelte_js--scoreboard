@@ -17,6 +17,7 @@
   let num = 5;
 </script>
 
+<!-- these styles are component specific. and will not style anyother component with same tags. -->
 <style>
   main {
     text-align: center;
