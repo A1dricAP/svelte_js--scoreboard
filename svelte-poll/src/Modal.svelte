@@ -1,6 +1,6 @@
 <script>
   export let message = "DEFAULT VALUE"; // this line means that we've imported the message from outside. Because of the "export" keyword.
-  let showModal = true;
+  export let showModal = false;
   export let isPromo = false;
 </script>
 
@@ -22,13 +22,15 @@
   }
 
   .promo .modal {
-    background: antiquewhite;
-    color: darkcyan;
+    background: orchid;
+    color: antiquewhite;
   }
 </style>
 
 {#if showModal}
-  <div class="backdrop" class:promo={isPromo}>
+  <div class="backdrop" class:promo={isPromo} on:click>
+    <!--by not declaring the value of click event, we're forwarding 
+    the click event to the component where it is declared. In this case, to the Modal component imported in the App.svelte file.-->
     <!--here, class:promo will be set, if whatever value within parenthesis is true. Basically adding a new class.-->
     <div class="modal">
       <p>{message}</p>

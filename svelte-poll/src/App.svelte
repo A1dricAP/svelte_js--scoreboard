@@ -14,7 +14,11 @@
     // we can give any name in place of <person>
   };
 
-  let num = 5;
+  let showModal = false;
+
+  const toggleModal = () => {
+    showModal = !showModal;
+  };
 </script>
 
 <!-- these styles are component specific. and will not style anyother component with same tags. -->
@@ -41,15 +45,13 @@
 </style>
 
 <!-- using the Modal component here. -->
-<Modal message="This is a PROP value! "  isPromo={true}/>
+<Modal message="This is a PROP value! "  showModal={showModal} isPromo={true} on:click={toggleModal}/>
+<!--this on:click is basically the forwaded event from the Modal.svelte file. And fires the toggleModal() method.-->
+<!-- Basically these values are called props. these are passed on to the file where Modal component resides. -->
+
 <main>
-  {#if num > 5}
-    <p>num greater than 5</p>
-  {:else if num > 20}
-    <p>num greater than 20</p>
-  {:else}
-    <p>number greater than 3</p>
-  {/if}
+  <button on:click={toggleModal}>Open Modal</button>
+
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
