@@ -1,6 +1,7 @@
 <script>
+  export let message = "DEFAULT VALUE"; // this line means that we've imported the message from outside. Because of the "export" keyword.
   let showModal = true;
-  let isPromo = true;
+  export let isPromo = false;
 </script>
 
 <style>
@@ -30,7 +31,7 @@
   <div class="backdrop" class:promo={isPromo}>
     <!--here, class:promo will be set, if whatever value within parenthesis is true. Basically adding a new class.-->
     <div class="modal">
-      <p>Sign up here!💦</p>
+      <p>{message}</p>
     </div>
   </div>
 {/if}

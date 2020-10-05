@@ -41,7 +41,7 @@
 </style>
 
 <!-- using the Modal component here. -->
-<Modal/>
+<Modal message="This is a PROP value! "  isPromo={true}/>
 <main>
   {#if num > 5}
     <p>num greater than 5</p>
