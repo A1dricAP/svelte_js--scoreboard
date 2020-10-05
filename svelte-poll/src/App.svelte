@@ -50,7 +50,9 @@
 <!-- Basically these values are called props. these are passed on to the file where Modal component resides. -->
 
 <main>
-  <button on:click={toggleModal}>Open Modal</button>
+  <button on:click|once={toggleModal}>Open Modal</button>
+  <!-- by piping "once" event modifier, we're telling browser to enable button reference, 
+    "toggleModal" method only once.-->
 
   {#each people as person (person.id)}
     <div>
