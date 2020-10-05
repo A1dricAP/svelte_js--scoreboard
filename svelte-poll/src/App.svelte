@@ -1,27 +1,9 @@
 <script>
-  import { text } from "svelte/internal";
-
-  let firstName = "aldric";
-  let lastName = "ap";
-  let beltColour = "black";
-
-  $: fullName = `${firstName} ${lastName}`;
-  // this is a reactive value.
-  // this value automatically updates the fullName value, when either of the two variables
-  // value change.
-  $: {
-    console.log(beltColour);
-    console.log(fullName);
-  }
-
-  const handleClick = () => {
-    beltColour = "orange";
-  };
-
-  //* taking e as the event parameter.
-  const handleInput = (e) => {
-    beltColour = e.target.value; // target being the field, where an action has taken place and value being the value of the target.
-  };
+  let people = [
+    { name: "aldric", beltcolour: "black", age: 20, id: 1 },
+    { name: "aaron", beltcolour: "orange", age: 15, id: 2 },
+    { name: "jon", beltcolour: "red", age: 18, id: 3 },
+  ];
 </script>
 
 <style>
@@ -47,8 +29,13 @@
 </style>
 
 <main>
-  <p>{fullName} - {beltColour} belt!</p>
-  <input type="text" bind:value={firstName} />
-  <input type="text" bind:value={lastName} />
-  <input type="text" bind:value={beltColour} />
+  {#each people as person (person.id)}
+    <div>
+      <h4>{person.name}</h4>
+
+      <p>{person.beltcolour} belt, and is {person.age} years old!</p>
+    </div>
+  {:else}
+    <p>There are no people mate...☹️</p>
+  {/each}
 </main>
