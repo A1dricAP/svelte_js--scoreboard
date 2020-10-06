@@ -45,7 +45,7 @@
 </style>
 
 <!-- using the Modal component here. -->
-<Modal   showModal={showModal} isPromo={true} on:click={toggleModal}>
+<Modal   showModal={showModal} isPromo={false} on:click={toggleModal}>
   <AddPersonForm/>
 </Modal>
 <!-- instead of using props to render big HTML content, we can use slots. Slots are defined by creating content
