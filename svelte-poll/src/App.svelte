@@ -2,9 +2,9 @@
   import Modal from "./Modal.svelte"; //the name of the imported component can be anything
   import AddPersonForm from "./AddPersonForm.svelte";
   let people = [
-    { name: "aldric", beltcolour: "black", age: 20, id: 1 },
-    { name: "aaron", beltcolour: "orange", age: 15, id: 2 },
-    { name: "jon", beltcolour: "red", age: 18, id: 3 },
+    { name: "aldric", beltColour: "black", age: 20, id: 1 },
+    { name: "aaron", beltColour: "orange", age: 15, id: 2 },
+    { name: "jon", beltColour: "red", age: 18, id: 3 },
   ];
 
   const handleClick = (id) => {
@@ -18,6 +18,14 @@
 
   const toggleModal = () => {
     showModal = !showModal;
+  };
+
+  const addPerson = (e) => {
+    // "e" is the event object. in this case, the person object being sent from the addPerson dispatch.
+    console.log(e.detail);
+    const person = e.detail; // setting person to be all the details received as the object
+    people = [person, ...people]; //adding newly added person object to people list.
+    showModal = false;
   };
 </script>
 
@@ -46,7 +54,7 @@
 
 <!-- using the Modal component here. -->
 <Modal   showModal={showModal} isPromo={false} on:click={toggleModal}>
-  <AddPersonForm/>
+  <AddPersonForm on:addPerson={addPerson}/>
 </Modal>
 <!-- instead of using props to render big HTML content, we can use slots. Slots are defined by creating content
      within the modal element. 
@@ -62,10 +70,10 @@
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
-      {#if person.beltcolour === 'black'}
+      {#if person.beltColour === 'black'}
         <p><strong>MASTER NINJA!</strong></p>
       {/if}
-      <p>{person.beltcolour} belt, and is {person.age} years old!</p>
+      <p>{person.beltColour} belt, and is {person.age} years old!</p>
       <button on:click={() => handleClick(person.id)}>Delete</button>
       <!-- in the on:click function, we use {()=>handleClick()} to prevent handleClick method from invoking. -->
       <!-- basically wrapping the method with the help of callback function `()` -->
