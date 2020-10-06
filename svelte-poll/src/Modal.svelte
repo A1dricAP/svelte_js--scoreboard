@@ -40,6 +40,7 @@
 
     <div class="modal">
       <slot />
+      <!--instead of importing props to be displayed, we use slots.-->
     </div>
   </div>
 {/if}

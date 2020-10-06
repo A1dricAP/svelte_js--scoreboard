@@ -14,6 +14,12 @@ All our codes is written in svelte and those files reside in the `src` folder
 
 All components should have the `.svelte` extension. In this way, it knows that it's a component and can be compiled.
 
+The basic structure of a svelte file comprise of following parts:
+
+1. `<script>`
+1. `<html>`
+1. `<style>`
+
 ## Consists of two svelte.js projects
 
 1. Creating a Scoreboard using Svelte.js
