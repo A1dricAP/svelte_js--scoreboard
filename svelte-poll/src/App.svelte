@@ -45,7 +45,15 @@
 </style>
 
 <!-- using the Modal component here. -->
-<Modal message="This is a PROP value! "  showModal={showModal} isPromo={true} on:click={toggleModal}/>
+<Modal   showModal={showModal} isPromo={true} on:click={toggleModal}>
+<h3>Add Person</h3>
+<form>
+  <input type="text" placeholder="Name">
+  <input type="text" placeholder='belt colour'>
+  <button>Add</button>
+</form>
+
+</Modal>
 <!--this on:click is basically the forwaded event from the Modal.svelte file. And fires the toggleModal() method.-->
 <!-- Basically these values are called props. these are passed on to the file where Modal component resides. -->
 

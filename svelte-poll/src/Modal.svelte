@@ -1,7 +1,7 @@
 <script>
   //* event modifiers -> self : only fires the event if the clicked element is the target.
 
-  export let message = "DEFAULT VALUE"; // this line means that we've imported the message from outside. Because of the "export" keyword.
+  // this line means that we've imported the message from outside. Because of the "export" keyword.
   export let showModal = false;
   export let isPromo = false;
 </script>
@@ -39,7 +39,7 @@
 ->    here, class:promo will be set, if whatever value within parenthesis is true. Basically adding a new class.-->
 
     <div class="modal">
-      <p>{message}</p>
+      <slot />
     </div>
   </div>
 {/if}
