@@ -1,6 +1,7 @@
 <script>
   import Modal from "./Modal.svelte"; //the name of the imported component can be anything
   import AddPersonForm from "./AddPersonForm.svelte";
+
   let people = [
     { name: "aldric", beltColour: "black", age: 20, id: 1 },
     { name: "aaron", beltColour: "orange", age: 15, id: 2 },
