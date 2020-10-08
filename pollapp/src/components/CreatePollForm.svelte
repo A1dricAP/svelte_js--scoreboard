@@ -18,6 +18,7 @@
   }
 
   .form-fields {
+    text-align: center;
     margin: 18px auto;
   }
 
