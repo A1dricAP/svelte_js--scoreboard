@@ -1,6 +1,7 @@
 <script>
   import Header from "./components/Header.svelte";
   import Footer from "./components/footer.svelte";
+  import CreatePollForm from "./components/CreatePollForm.svelte";
 
   // we import the component-Tabs, just to use it in our page and send props for use.
   import Tabs from "./shared/tabs.svelte";
@@ -18,6 +19,7 @@
   main {
     max-width: 960;
     margin: 40px auto;
+    text-align: center;
   }
 </style>
 
@@ -27,7 +29,7 @@
   {#if activeItem === 'Current Polls'}
     <p>This is current polls, mate</p>
   {:else if activeItem === 'Add New Poll'}
-    <p>Active items tabChange, mate</p>
+    <CreatePollForm />
   {/if}
 </main>
 <Footer />

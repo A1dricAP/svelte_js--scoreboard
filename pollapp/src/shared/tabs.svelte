@@ -8,6 +8,7 @@
 <style>
   .tabs {
     margin-bottom: 40px;
+    text-align: center;
   }
   li {
     margin: 0 16px;
