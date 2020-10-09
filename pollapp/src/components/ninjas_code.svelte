@@ -1,3 +1,5 @@
+<!-- not to be imported anywhere, compare this code with "my_code.svelte" 
+this code worked. -->
 <script>
   import Button from "../shared/Button.svelte";
   let fields = { question: "", answerA: "", answerB: "" };
