@@ -1,4 +1,5 @@
 <script>
+  import Card from "../shared/Card.svelte";
   export let poll;
 
   //reactive values
@@ -35,15 +36,17 @@
   }
 </style>
 
-<div class="poll">
-  <h3>{poll.question}</h3>
-  <p>Total Votes: {totalVotes}</p>
-  <div class="answer">
-    <div class="percent percent-a" />
-    <span>{poll.answerA}({poll.votesA})</span>
+<Card>
+  <div class="poll">
+    <h3>{poll.question}</h3>
+    <p>Total Votes: {totalVotes}</p>
+    <div class="answer">
+      <div class="percent percent-a" />
+      <span>{poll.answerA}({poll.votesA})</span>
+    </div>
+    <div class="answer">
+      <div class="percent percent-ab" />
+      <span>{poll.answerB}({poll.votesB})</span>
+    </div>
   </div>
-  <div class="answer">
-    <div class="percent percent-ab" />
-    <span>{poll.answerB}({poll.votesB})</span>
-  </div>
-</div>
+</Card>
