@@ -23,9 +23,9 @@
     }
     if (fields.answerB.trim().length < 1) {
       valid = false;
-      errors.question = "Answer B not approp";
+      errors.answerB = "Answer B not approp";
     } else {
-      errors.question = "";
+      errors.answerB = "";
     }
     if (valid) {
       console.log("valid", fields);
