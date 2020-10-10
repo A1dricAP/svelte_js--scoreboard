@@ -32,6 +32,22 @@
     console.log(polls);
     activeItem = "Current Polls";
   };
+
+  const handleVote = (e) => {
+    const { id, option } = e.detail; //getting the id and option objects from the object we passed into the function as a parameter
+    let copiedPolls = [...polls];
+    let upvotedPolls = copiedPolls.find((poll) => poll.id == id);
+    //this find() basically searches through the polls object to find the equal value.
+
+    if (option === "a") {
+      upvotedPolls.votesA++;
+    }
+    if (option === "b") {
+      upvotedPolls.votesB++;
+    }
+
+    polls = copiedPolls;
+  };
 </script>
 
 <style>
@@ -46,7 +62,7 @@
 <main>
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
   {#if activeItem === 'Current Polls'}
-    <PollList {polls} />
+    <PollList {polls} on:vote={handleVote} />
   {:else if activeItem === 'Add New Poll'}
     <CreatePollForm on:add={handleAdd} />
   {/if}

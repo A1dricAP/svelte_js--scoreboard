@@ -14,7 +14,8 @@
 <div class="poll-list">
   {#each polls as poll (poll.id)}
     <div>
-      <PollDetails {poll} />
+      <PollDetails {poll} on:vote />
+      <!--forwarding the event to the App.svelte, by not declaring any function for it.-->
     </div>
   {/each}
 </div>
