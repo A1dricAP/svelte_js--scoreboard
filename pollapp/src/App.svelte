@@ -34,7 +34,7 @@
   };
 
   const handleVote = (e) => {
-    const { id, option } = e.detail; //getting the id and option objects from the object we passed into the function as a parameter
+    const { id, option } = e.detail; //by destructuring, getting the id and option objects from the object we passed into the function as a parameter
     let copiedPolls = [...polls];
     let upvotedPolls = copiedPolls.find((poll) => poll.id == id);
     //this find() basically searches through the polls object to find the equal value.
